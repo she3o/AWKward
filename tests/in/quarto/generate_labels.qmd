@@ -1,0 +1,108 @@
+# Sample Document
+
+This document contains regular text, Markdown syntax, and some code chunks.
+
+```{r}
+#| label: already_labeled
+print("This chunk is uniquely labeled. should be left alone")
+```
+
+```{r}
+print("This code chunk does not contain a label but it should")
+```
+
+
+#| label: another_label
+print("This is not a code chunk. leave label alone")
+
+```{r}
+#| label: another_label
+print("leave alone. previous occurance was not inside a code chunk")
+```
+
+The next label line is inside a code chunk but no language is defined.
+
+```
+#| label: another_label
+print("Leave alone")
+```
+
+I will add a code chunk with a label.
+later I will reuse the same label.
+This way I can test non-unique chunks.
+In fact I will do that multiple times to check the behavior with mixed languages.
+
+Code chunk with non-unique-label_1
+
+```{r}
+#| label: non-unique-label_1
+print("Leave alone")
+```
+
+python code chunk non-unique-label_2
+
+```{python}
+#| label: non-unique-label_2
+print("Leave alone")
+```
+
+R code chunk with non-unique-label_3
+
+```{r}
+#| label: non-unique-label_3
+print("Leave alone")
+```
+
+Code Chunk with non-unique-label_1
+
+```{r}
+#| label: non-unique-label_1
+print("Duplicate. replace.")
+```
+
+
+python code chunk with non-unique-label_3
+
+```{python}
+#| label: non-unique-label_3
+print("Duplicate. replace")
+```
+
+non-language code chunk with non-unique-label_3
+
+```
+#| label: non-unique-label_3
+print("no language. Leave alone")
+```
+
+
+R code chunk non-unique-label_2
+
+```{r}
+#| label: non-unique-label_2
+print("Duplicate. replace.")
+```
+
+```{r}
+print("Add label")
+```
+
+
+if eval = false, code chunk should be ignored.
+
+```{r}
+#| eval: false
+print("Leave Alone")
+```
+
+
+label is not on first line after backticks, which is wrong.
+
+```{r}
+#| echo: false
+#| label: wrong location
+print("Move to top")
+print("This might be hard for AWK. relax this test")
+```
+
+End of document.

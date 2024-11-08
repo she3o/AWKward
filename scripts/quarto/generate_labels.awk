@@ -18,7 +18,7 @@ function randstr(n,   i, chars, s) {
 
 {
     # Check for code chunk start
-    if ($0 ~ /^```{[^}]*}$/) {
+    if ($0 ~ /^```[{][^}]*[}]$/) {
         in_code_block = 1
         first_line_in_chunk = 1
         print  # Print the code chunk start line
